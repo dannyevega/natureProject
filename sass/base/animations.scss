@@ -1,3 +1,7 @@
+/* Create name for animation - '0%' is start position of animation, '100%' is ending position - can do somethign at any position i.e. XX% */
+/* translateX animates on X axis with -100px on left */
+/* translate(0) to go back to original position, normal look */
+/* Positive values move forward, negative values move backwards just how you would think */
 @keyframes moveInLeft {
   0% {
     opacity: 0;

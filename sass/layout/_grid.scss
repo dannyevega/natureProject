@@ -1,0 +1,56 @@
+// use max-width - will fill 1140px width of viewport BUT if viewport is any less, it will fill 100% of the available space
+// :not(:last-child) -- applies styles to everything BUT last child
+// calc() -- does math operations where we can mix different units
+
+// in order to get the width of each column, we need to calculate it with calc() function
+// if there is 2 columns (i.e. 1 gutter) only need to subtract gutter value from total width and divide by 2
+// if there is 3 columns (i.e. 2 gutters) need to multiply gutter value by 2 then subtract from total width and divide by 3 -- so dope!
+
+//
+.row {
+  max-width: $grid-width;
+  background-color: #EEE;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $vertical-gutter;
+  }
+
+  @include clearfix;
+
+  // attribute selector - we can specify any attribute (i.e. 'src', 'alt="logo"') -- were selecting class and using the carat symbol (^) will choose all classes that BEGIN with "col-" -- easier than adding new class to every div -- keep it DRY
+  // * symbol will select all elements that CONTAIN the value you pass in
+  // $ symbol will select all elements that END the value you pass in
+  [class^="col-"] {
+    background-color: red;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $horizontal-gutter;
+    }    
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$horizontal-gutter}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - (2 * #{$horizontal-gutter})) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc((2 * (100% - (2 * #{$horizontal-gutter})) / 3) + #{$horizontal-gutter});
+  }  
+
+  .col-1-of-4 {
+    width: calc((100% - (3 * #{$horizontal-gutter})) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc((2 * (100% - (3 * #{$horizontal-gutter})) / 4) + #{$horizontal-gutter});
+  }
+
+  .col-3-of-4 {
+    width: calc((3 * (100% - (3 * #{$horizontal-gutter})) / 4) + (2 * #{$horizontal-gutter}));
+  }
+}

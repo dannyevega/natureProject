@@ -1,3 +1,7 @@
+/* Create name for animation - '0%' is start position of animation, '100%' is ending position - can do somethign at any position i.e. XX% */
+/* translateX animates on X axis with -100px on left */
+/* translate(0) to go back to original position, normal look */
+/* Positive values move forward, negative values move backwards just how you would think */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -50,7 +54,7 @@ body {
 .heading-primary {
   color: #FFF;
   text-transform: uppercase;
-  /* backface-visibility: hidden; */
+  /* entire element moves in animation, this property determines if back part of animated element is visible or hidden */
   margin-bottom: 6rem; }
   .heading-primary--main {
     display: block;
@@ -71,6 +75,12 @@ body {
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
 
+/* 
+since .btn is an anchor element, set display to inline-block so we can adjust padding etc -- do to any inline element you want to control
+transition property is set on initial state
+basically saying, it will transition like this at this speed
+you put the transform on the pseduo selector -- i.e. move up 3px then translate tells you how fast
+*/
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -97,6 +107,12 @@ body {
   animation: moveInButton 1.5s ease-out .75s;
   animation-fill-mode: backwards; }
 
+/*
+have to make a copy of element you are trying to make effect for
+poition it to be directly behind with absolute positioning
+element has to be same color
+add transformation in hover
+*/
 /* .btn::after {
   content: "";
   display: inline-block;
@@ -118,6 +134,37 @@ body {
   transform: scale(1.2);
   opacity: 0;;
 } */
+.row {
+  max-width: 114rem;
+  background-color: #EEE;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: red;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - (2 * 6rem)) / 3); }
+  .row .col-2-of-3 {
+    width: calc((2 * (100% - (2 * 6rem)) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - (3 * 6rem)) / 4); }
+  .row .col-2-of-4 {
+    width: calc((2 * (100% - (3 * 6rem)) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc((3 * (100% - (3 * 6rem)) / 4) + (2 * 6rem)); }
+
+/* add background gradient with 'background-image' property  */
+/* polygon clip goes in order top left, top right, bottom right, bottom left -- all along X and Y axis */
+/* use Clippy tool to create coordinates for you */
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);

@@ -10,8 +10,8 @@ body {
 .heading-primary {
   color: $white;
   text-transform: uppercase;
-
-  /* backface-visibility: hidden; */
+  /* entire element moves in animation, this property determines if back part of animated element is visible or hidden */
+  // backface-visibility: hidden;
   margin-bottom: 6rem;
 
   &--main {

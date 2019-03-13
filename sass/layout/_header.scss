@@ -1,3 +1,6 @@
+/* add background gradient with 'background-image' property  */
+/* polygon clip goes in order top left, top right, bottom right, bottom left -- all along X and Y axis */
+/* use Clippy tool to create coordinates for you */
 .header {
   height: 95vh;
   background-image: linear-gradient(
