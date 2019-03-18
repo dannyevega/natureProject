@@ -16,7 +16,7 @@ you put the transform on the pseduo selector -- i.e. move up 3px then translate 
     border-radius: 10rem;
     transition: all .2s;
     position: relative;
-    font-size: 1.6rem;
+    font-size: $default-font;
   }
 
   // box-shadow: X position, Y position, blur amount, color
@@ -39,6 +39,33 @@ you put the transform on the pseduo selector -- i.e. move up 3px then translate 
     animation: moveInButton 1.5s ease-out .75s;
     animation-fill-mode: backwards;
   }
+}
+
+.btn-text {
+   &:link,
+   &:visited {
+    font-size: $default-font;
+    color: $primary-color;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $primary-color;
+    padding: 3px;
+    transition: all .2s;
+   }
+
+   &:hover {
+    background-color: $primary-color;
+    color: $white;
+    box-shadow: 0 1rem 2rem rgba($black, .15);
+    transform: translateY(-2px);
+   }
+
+   &:active {
+    background-color: $primary-color;
+    color: $white;
+    box-shadow: 0 .5rem 1rem rgba($black, .15);
+    transform: translateY(0);     
+  }   
 }
 
 /*

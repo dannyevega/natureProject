@@ -9,7 +9,6 @@
 //
 .row {
   max-width: $grid-width;
-  background-color: #EEE;
   margin: 0 auto;
 
   &:not(:last-child) {
@@ -22,7 +21,6 @@
   // * symbol will select all elements that CONTAIN the value you pass in
   // $ symbol will select all elements that END the value you pass in
   [class^="col-"] {
-    background-color: red;
     float: left;
 
     &:not(:last-child) {
